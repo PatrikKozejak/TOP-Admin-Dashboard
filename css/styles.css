@@ -1,8 +1,15 @@
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("/fonts/sourcesanspro-regular-webfont.woff2") format("woff2"),
+    url("/fonts/sourcesanspro-regular-webfont.woff") format("woff");
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   outline: none;
+  font-family: "SourceSansPro", sans-serif;
 }
 
 .container {

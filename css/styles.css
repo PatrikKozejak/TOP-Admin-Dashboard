@@ -1,7 +1,7 @@
 @font-face {
   font-family: "SourceSansPro";
-  src: url("/fonts/sourcesanspro-regular-webfont.woff2") format("woff2"),
-    url("/fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  src: url("/assets/fonts/sourcesanspro-regular-webfont.woff2") format("woff2"),
+    url("/assets/fonts/sourcesanspro-regular-webfont.woff") format("woff");
 }
 
 * {
@@ -46,49 +46,63 @@ li {
   z-index: 2;
   display: grid;
   grid-template: 1fr 1fr / 2fr 1fr;
-  padding: 16px;
+  padding: 16px 32px;
   justify-items: center;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  background-color: #fafaf9;
 }
 
 .main {
   display: grid;
   grid-template: 1fr 1fr / 3fr 1fr;
-  gap: 20px;
+  column-gap: 20px;
   background-color: #e2e8f0;
   padding: 16px;
 }
 
 .projects {
   grid-row: 1 / 3;
+  display: grid;
+  grid-template-rows: 1fr 15fr;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 24px;
 }
 
 .shadow {
-  height: 200px;
   background-color: #f0b429;
 }
 
 .card {
   padding: 12px 20px;
-  height: 200px;
+  height: 100%;
   background-color: #fafaf9;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin-left: 10px;
   font-size: 18px;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
 }
 
-button {
+.card-icons {
+  /* grid-row: 3 / 4; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  justify-self: end;
+  align-items: center;
+}
+
+.nav-button,
+.icon-button {
   color: #fafaf9;
   background-color: #1992d4;
-
   display: inline-block;
   outline: 0;
   border: 0;
@@ -118,16 +132,29 @@ button {
 }
 
 .announcement p,
-.card p {
+.card p,
+.trend p {
   color: #8a8a8a;
+}
+
+.trending {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-rows: 1fr 7fr;
 }
 
 .trending-content {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
-  padding: 12px;
+  padding: 8px 20px;
   background-color: #fafaf9;
   gap: 12px;
+  justify-items: stretch;
+  align-items: center;
+}
+
+.trend {
+  justify-self: stretch;
 }
 
 .devide {
@@ -147,12 +174,13 @@ h3 {
 input {
   border-radius: 20px;
   line-height: 1.5;
-  padding: 5px 10px;
+  padding: 4px 16px;
   border: none;
   color: rgb(14, 14, 16);
   background: #e2e8f0;
   height: 32px;
-  width: 520px;
+  width: 600px;
+  position: relative;
 }
 input:hover {
   border-color: #ccc;
@@ -161,9 +189,113 @@ input:focus {
   border-color: #f0b429;
 }
 
+.announcements {
+  grid-row: 1 / 2;
+  display: grid;
+  grid-template-rows: 1fr 7fr;
+}
+
 .shadow,
 .announcement-content,
 .trending-content {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+
+.icon-dashboard,
+.icon-button {
+  background-color: #1992d4;
+  border: 0;
+  font-weight: 700;
+  color: #e2e8f0;
+  font-size: 24px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-button {
+  background-color: #fafaf9;
+  border: 0;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+}
+
+.icon {
+  height: 24px;
+}
+
+.icon-dashboard {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.icon-dashboard > .icon {
+  height: 42px;
+}
+
+label::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  background: url("/assets/icons/magnify.svg") no-repeat;
+  width: 60px;
+  height: 24px;
+  left: 60px;
+  top: 36px;
+}
+
+.user-info {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 12px;
+  justify-self: start;
+}
+
+.user-profile {
+  height: 64px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+  gap: 12px;
+  justify-items: center;
+  align-items: center;
+}
+
+.profile h3 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.icon-profile {
+  height: 48px;
+}
+
+label {
+  position: relative;
+  top: -36px;
+  left: -100px;
+}
+
+.trend-button {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 16px;
+  background-color: #fafaf9;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.trend-button div {
+  text-align: start;
+}
+
+.trend-user {
+  align-self: center;
 }
